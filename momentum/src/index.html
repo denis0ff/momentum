@@ -6,7 +6,7 @@
   <link href="assets/favicon.ico" rel="shortcut icon" />
   <link rel="stylesheet" href="css/owfont-regular.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <script defer src="./index.js"></script>
+  <script type="module" src="./index.js"></script>
   <title>momentum</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" />
+      <input type="text" class="city" value="Minsk"/>
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -40,7 +40,7 @@
     <date class="date"></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name" />
+      <input type="text" class="name" placeholder="[Enter name]"/>
     </div>
   </main>
   <footer class="footer">
