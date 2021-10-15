@@ -1,4 +1,4 @@
-import { timer as timer } from "./js/time-calendar.js";
+import { timer } from "./js/time-calendar.js";
 import * as localStorage from "./js/name-input.js";
 import * as slider from "./js/image-slider.js";
 import * as player from "./js/player.js";
@@ -10,6 +10,7 @@ localStorage.getEvent;
 localStorage.setEvent;
 
 timer.updateTimer();
-slider.randomBackground();
+
+slider.setRandomBackground();
 
 player.playAudio()

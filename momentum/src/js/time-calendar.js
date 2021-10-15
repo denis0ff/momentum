@@ -48,5 +48,5 @@ class Timer {
 
 const timer = new Timer()
 
-export { timer as timer };
+export { timer };
 
