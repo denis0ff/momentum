@@ -1,11 +1,14 @@
-import { timer as timer } from "../js/time-calendar.js";
 
 const body = document.querySelector("body");
 const btnPrev = document.querySelector(".slide-prev");
 const btnNext = document.querySelector(".slide-next");
+const greeting = document.querySelector(".greeting");
 
-const min = 10;
+const min = 1;
 const max = 20;
+const img = new Image();
+const timeOfDay = greeting.textContent.slice(5);
+
 let randomNumber = getRandomNumber(min, max);
 
 function getRandomNumber(min, max) {
@@ -14,8 +17,8 @@ function getRandomNumber(min, max) {
 }
 
 function setRandomBackground() {
-  const timeOfDay = timer.greetingOutput;
-  const img = new Image();
+  if (randomNumber > 0 && randomNumber < 10) randomNumber = `0${randomNumber}`;
+  if (!timeOfDay) return
   img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${randomNumber}.jpg`;
   img.onload = () => {
     body.style.backgroundImage = `url('${img.currentSrc}')`;
@@ -23,12 +26,12 @@ function setRandomBackground() {
 }
 
 function getSlidePrev() {
-  randomNumber === min ? (randomNumber = max) : randomNumber--;
+  randomNumber == min ? (randomNumber = max) : randomNumber--;
   setRandomBackground();
 }
 
 function getSlideNext() {
-  randomNumber === max ? (randomNumber = min) : randomNumber++;
+  randomNumber == max ? (randomNumber = min) : randomNumber++;
   setRandomBackground();
 }
 
@@ -37,6 +40,5 @@ const slideNext = btnNext.addEventListener("click", getSlideNext);
 
 export {
   setRandomBackground as randomBackground,
-  slidePrev as slidePrev,
-  slideNext as slideNext,
+  getRandomNumber as getRandomNumber
 };

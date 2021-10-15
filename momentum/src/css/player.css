@@ -1,0 +1,73 @@
+.player {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30%;
+}
+
+.control-bar {
+  display: flex;
+  margin-left: 20px;
+  width: calc(100% - 140px);
+  flex-direction: column;
+  justify-content: center;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.sound-bar {
+  display: flex;
+  padding: 20px 40px;
+  align-items: center;
+  justify-content: center;;
+}
+
+.progress-seek {
+  width: 90%;
+}
+.progress,
+.sound-level {
+  background: linear-gradient(
+    to right,
+    #fff 0%,
+    #fff 0%,
+    #c4c4c4 0%,
+    #c4c4c4 100%
+  );
+  border: none;
+  height: 8px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.progress::-webkit-slider-thumb,
+.sound-level::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  background: #fff;
+}
+
+.player-time {
+  margin: 0 10px;
+}
+
+.sound-level {
+  width: calc(70% - 70px);;
+}
+
+.mute-toggle {
+  margin-right: 15px;
+  width: 35px;
+  height: 35px;
+  background: url(../assets/svg/volume.svg) no-repeat center;
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+}

@@ -13,7 +13,7 @@ class Timer {
     this.timeOptions = {
       timeZone: "EET",
     };
-    this.greetingText = ["night", "morning", "day", "evening"];
+    this.greetingText = ["night", "morning", "afternoon", "evening"];
     this.greetingOutput
   }
   showTime(dateNow) {

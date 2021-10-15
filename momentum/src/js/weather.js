@@ -6,11 +6,12 @@ const weatherDescription = document.querySelector(".weather-description");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
 
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+
 async function getWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
   const res = await fetch(url);
   const data = await res.json();
-  setWeather(data);
+  Promise.resolve().then(setWeather(data))
 }
 
 function setWeather(data) {
