@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/owfont-regular.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/player.css" />
+    <link rel="stylesheet" href="css/settings.css" />
     <!-- <script type="module" src="./index.js"></script> -->
     <title>momentum</title>
   </head>
@@ -38,7 +39,7 @@
             <span class="full-time player-time">00:00</span>
           </div>
           <div class="sound-bar">
-            <button class="mute-toggle"></button>
+            <button class="mute-toggle player-icon"></button>
             <input
               type="range"
               value="0.5"
@@ -81,6 +82,66 @@
       <div>
         <div class="quote"></div>
         <div class="author"></div>
+      </div>
+      <div class="settings-container">
+        <button class="settings-button player-icon"></button>
+        <div class="settings-panel show">
+          <div class="settings_wrapper">
+            <input type="radio" id="item-1" name="item[]" checked />
+            <input type="radio" id="item-2" name="item[]" />
+            <input type="radio" id="item-3" name="item[]" />
+            <ul class="menu-list">
+              <label for="item-1"
+                ><li class="menu-item">Images Source</li></label
+              >
+              <label for="item-2"><li class="menu-item">Language</li></label>
+              <label for="item-3"
+                ><li class="menu-item">Display Elements</li></label
+              >
+            </ul>
+            <ul class="content-list">
+              <li class="content-item">
+                <div class="content-item__wr images-source">
+                  <input
+                    type="radio"
+                    id="content-1"
+                    name="images-source"
+                    value="github"
+                    checked="checked"
+                  />
+                  <label for="content-1"> GitHub</label>
+                  <input
+                    type="radio"
+                    id="content-2"
+                    name="images-source"
+                    value="unsplash"
+                  />
+                  <label for="content-2">Unsplash API</label>
+                  <input
+                    type="radio"
+                    id="content-3"
+                    name="images-source"
+                    value="flickr"
+                  />
+                  <label for="content-3">Flickr API</label>
+                  <select name="Api Tag" id="apiTag">
+                    <option value="native">Native</option>
+                    <option value="office">Office</option>
+                    <option value="nature">Nature</option>
+                    <option value="animal">Animal</option>
+                    <option value="earth">Earth</option>
+                  </select>
+                </div>
+              </li>
+              <li class="content-item">
+                <div class="content-item__wr"></div>
+              </li>
+              <li class="content-item">
+                <div class="content-item__wr"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
   </body>

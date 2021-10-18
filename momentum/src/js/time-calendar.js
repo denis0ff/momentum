@@ -14,10 +14,11 @@ class Timer {
       timeZone: "EET",
     };
     this.greetingText = ["night", "morning", "afternoon", "evening"];
-    this.greetingOutput
+    this.greetingOutput;
+    this.arrNumber = 0;
   }
   showTime(dateNow) {
-    const currentTime = dateNow.toLocaleTimeString("ru-RU",this.timeOptions);
+    const currentTime = dateNow.toLocaleTimeString("ru-RU", this.timeOptions);
     time.textContent = currentTime;
   }
   showDate(dateNow) {
@@ -27,15 +28,16 @@ class Timer {
   showGreeting(dateNow) {
     const hours = dateNow.getHours();
     hours >= 0 && hours < 6
-      ? (this.greetingOutput = this.greetingText[0])
+      ? (this.arrNumber = 0)
       : hours >= 6 && hours < 12
-      ? (this.greetingOutput = this.greetingText[1])
+      ? (this.arrNumber = 1)
       : hours >= 12 && hours < 18
-      ? (this.greetingOutput = this.greetingText[2])
+      ? (this.arrNumber = 2)
       : hours >= 18 && hours < 24
-      ? (this.greetingOutput = this.greetingText[3])
+      ? (this.arrNumber = 3)
       : greetingOutput;
-    if (this.greetingOutput) greeting.textContent = 'Good ' + this.greetingOutput;
+    this.greetingOutput = this.greetingText[this.arrNumber];
+    greeting.textContent = "Good " + this.greetingOutput;
   }
   updateTimer() {
     const dateNow = new Date();
@@ -46,7 +48,6 @@ class Timer {
   }
 }
 
-const timer = new Timer()
+const timer = new Timer();
 
 export { timer };
-

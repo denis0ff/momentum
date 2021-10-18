@@ -4,6 +4,7 @@ import * as slider from "./js/image-slider.js";
 import * as player from "./js/player.js";
 import getWeather from "./js/weather.js";
 import getQuotes from "./js/day-quotes.js";
+import * as settings from "./js/settings.js";
 
 
 localStorage.getEvent;
@@ -14,3 +15,5 @@ timer.updateTimer();
 slider.setRandomBackground();
 
 player.playAudio()
+
+settings.showSettings()

@@ -77,10 +77,8 @@
   margin-right: 15px;
   width: 35px;
   height: 35px;
-  background: url(../assets/svg/volume.svg) no-repeat center;
+  background-image: url(../assets/svg/volume.svg);
   background-size: contain;
-  background-color: transparent;
-  border: none;
 }
 
 .play-list {

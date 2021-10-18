@@ -1,11 +1,15 @@
+import { getLinkToImage, state } from "./settings";
+import { timer } from "./time-calendar.js";
+
 const body = document.querySelector("body");
 const btnPrev = document.querySelector(".slide-prev");
 const btnNext = document.querySelector(".slide-next");
-const greeting = document.querySelector(".greeting");
 
 const min = 1;
 const max = 20;
 const img = new Image();
+const imageTimeArr = ["night", "morning", "afternoon", "evening"];
+const index = timer.arrNumber;
 
 let randomNumber = getRandomNumber(min, max);
 
@@ -14,12 +18,18 @@ function getRandomNumber(min, max) {
   return Math.round(rand);
 }
 
-function setRandomBackground() {
-  const timeOfDay = greeting.textContent.slice(5);
-  if (randomNumber > 0 && randomNumber < 10) randomNumber = `0${randomNumber}`;
-  img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${randomNumber}.jpg`;
+async function setRandomBackground() {
+  if (state.photoSource == "github") {
+    if (randomNumber > 0 && randomNumber < 10)
+      if (typeof randomNumber !== 'string')
+      randomNumber = `0${randomNumber}`;
+    img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${imageTimeArr[index]}/${randomNumber}.jpg`;
+  } else {
+    await getLinkToImage();
+    img.src = state.tagUrl;
+  }
   img.onload = () => {
-    body.style.backgroundImage = `url('${img.currentSrc}')`;
+    body.style.backgroundImage = `url('${img.src}')`;
   };
 }
 
