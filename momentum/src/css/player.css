@@ -1,13 +1,14 @@
 .player {
   display: flex;
   flex-wrap: wrap;
-  width: 30%;
+  width: 70%;
+  z-index: 1;
 }
 
 .control-bar {
   display: flex;
   margin-left: 20px;
-  width: calc(100% - 140px);
+  width: 400px;
   flex-direction: column;
   justify-content: center;
 }
@@ -45,6 +46,16 @@
   cursor: pointer;
 }
 
+.sound-level {
+  background: linear-gradient(
+    to right,
+    #fff 0%,
+    #fff 50%,
+    #c4c4c4 50%,
+    #c4c4c4 100%
+  );
+}
+
 .progress::-webkit-slider-thumb,
 .sound-level::-webkit-slider-thumb {
   width: 15px;
@@ -70,4 +81,20 @@
   background-size: contain;
   background-color: transparent;
   border: none;
+}
+
+.play-list {
+  flex: 0 0 100%;
+}
+
+.play-item {
+  display: flex;
+  align-items: center;
+}
+
+.play-item-button {
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+  z-index: 5;
 }
