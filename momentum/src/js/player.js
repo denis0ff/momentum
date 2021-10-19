@@ -56,9 +56,9 @@ function initPlayList() {
   });
 }
 
-function playAudio() {
+async function playAudio() {
   if (isPause) {
-    audio.play();
+    await audio.play();
   } else {
     audio.pause();
   }
@@ -103,16 +103,15 @@ function slideList(moveTo) {
   slidePlay();
 }
 
-function slidePlay(button) {
-  let currentButton;
+async function slidePlay() {
   playButton.classList.remove("play");
   playButton.classList.add("pause");
-  toggleSmallButtons();
   audio.pause();
   updateSrc();
-  audio.play();
+  await audio.play();
   updateActive();
   isPause = false;
+  toggleSmallButtons();
 }
 
 function autoProgressUpdate() {
@@ -185,24 +184,16 @@ function soundLevelLineUpdate() {
   soundLevel.style.background = `linear-gradient(to right, #fff 0%, #fff ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
 }
 
+let prevClick;
 function playOnSmallButton(e) {
-  const buttons = document.querySelectorAll(".play-item-button");
+  if (prevClick != e.target) {
+    prevClick = e.target;
+  } else {
+    toggleBtn()
+    return
+  }
   playNum = this.dataset.index;
   slidePlay(e.target);
-  buttons.forEach((button) => {
-    button.classList.remove("pause");
-    button.classList.add("play");
-    if (button.dataset.index == playNum) {
-      if (isPause) {
-        button.classList.remove("pause");
-        button.classList.add("play");
-      } else {
-        button.classList.remove("play");
-        button.classList.add("pause");
-      }
-      // isPause = !isPause;
-    }
-  });
 }
 
 function toggleSmallButtons() {
@@ -226,13 +217,12 @@ function handleProgressUpdate() {
   audio.currentTime = (this.value * audio.duration) / 100;
 }
 
-function autoPlay() {
-  console.log(playListLength, playNum);
+async function autoPlay() {
   if (playNum == playListLength - 1) playNum = 0;
   else playNum++;
   updateSrc();
   updateActive();
-  audio.play();
+  await audio.play();
   toggleSmallButtons();
 }
 

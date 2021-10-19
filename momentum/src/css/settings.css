@@ -5,14 +5,13 @@
   z-index: 100;
 }
 
-
 .settings-button {
   width: 50px;
   height: 50px;
   background-image: url(../assets/svg/settings.svg);
 }
 
-.show { 
+.show {
   opacity: 1 !important;
   transition: 0.5s;
 }
@@ -60,7 +59,9 @@
   display: flex;
   flex-direction: column;
   padding: 10px 0;
+  border-right: 2px solid #c4c4c4;
   justify-content: center;
+  list-style: none;
 }
 
 .menu-item {
@@ -98,12 +99,14 @@
 }
 
 .settings_wrapper label:hover {
-  background-color: rgba(1, 1, 1, 10%);
+  box-shadow: inset 0px -2px 5px 0px #88a4a5;
 }
 
-input:focus + label,
-input:active + label {
-  background-color: rgba(248, 255, 185, 0.562);
+input:checked + label,
+input[type="radio"]:nth-child(1):checked ~ .menu-list > label:nth-child(1),
+input[type="radio"]:nth-child(2):checked ~ .menu-list > label:nth-child(2),
+input[type="radio"]:nth-child(3):checked ~ .menu-list > label:nth-child(3) {
+  box-shadow: inset 6px 0px 5px 0px #88a4a5;
 }
 
 .content-item {
@@ -124,12 +127,13 @@ input:active + label {
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .content-item__wr > label {
   display: flex;
-  height: 2em;
+  height: 1em;
+  padding: 1.4em;
   justify-content: center;
   align-items: center;
 }
@@ -137,7 +141,7 @@ input:active + label {
 #apiTag {
   opacity: 0;
   font-size: 18px;
-  margin: 5px 10px;
+  margin: 5px 0;
   transition: 0.5s;
   z-index: -1;
 }
