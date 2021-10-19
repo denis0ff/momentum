@@ -26,10 +26,12 @@
   top: -30vh;
   left: 2%;
   background-color: #fff;
-  color: #111;
+  color: #222;
   height: 30vh;
   width: 0;
   opacity: 0;
+  border-radius: 3%;
+  box-shadow: 0px 0px 10px 10px #ffffff2e;
   z-index: -1;
   transition: 0.5s;
 }
@@ -52,20 +54,20 @@
   display: grid;
   grid-template-columns: 40% auto;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .menu-list {
   display: flex;
   flex-direction: column;
-  padding: 10px 0;
-  border-right: 2px solid #c4c4c4;
+  margin: 10px 0;
+  border-right: 2px solid #c4c4c48c;
   justify-content: center;
   list-style: none;
 }
 
 .menu-item {
-  border-bottom: 1px solid #cecece;
+  opacity: 0.9;
   padding: 10px 0;
 }
 
@@ -99,14 +101,15 @@
 }
 
 .settings_wrapper label:hover {
-  box-shadow: inset 0px -2px 5px 0px #88a4a5;
+  opacity: 0.75 !important;
 }
 
 input:checked + label,
 input[type="radio"]:nth-child(1):checked ~ .menu-list > label:nth-child(1),
 input[type="radio"]:nth-child(2):checked ~ .menu-list > label:nth-child(2),
 input[type="radio"]:nth-child(3):checked ~ .menu-list > label:nth-child(3) {
-  box-shadow: inset 6px 0px 5px 0px #88a4a5;
+  opacity: 1 !important;
+  font-weight: bold;
 }
 
 .content-item {
@@ -131,6 +134,7 @@ input[type="radio"]:nth-child(3):checked ~ .menu-list > label:nth-child(3) {
 }
 
 .content-item__wr > label {
+  opacity: 0.95;
   display: flex;
   height: 1em;
   padding: 1.4em;
@@ -138,7 +142,7 @@ input[type="radio"]:nth-child(3):checked ~ .menu-list > label:nth-child(3) {
   align-items: center;
 }
 
-#apiTag {
+#api-tag {
   opacity: 0;
   font-size: 18px;
   margin: 5px 0;
@@ -146,11 +150,41 @@ input[type="radio"]:nth-child(3):checked ~ .menu-list > label:nth-child(3) {
   z-index: -1;
 }
 
-#apiTag.show {
+#api-tag.show {
   opacity: 1;
   z-index: 100;
 }
 
-#apiTag > option {
+#api-tag > option {
   font-size: 14px;
+}
+
+.block-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.block-item > input {
+  position: absolute;
+  left: 15px;
+}
+
+.block-item > label {
+  opacity: 0.95;
+  padding-left: 33px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.hide {
+  opacity: 0 !important;
+  transition: 1s;
+}
+
+.date, .greeting__wr, .quotes__wr, .time, .player, .weather{
+  transition: 1s;
 }

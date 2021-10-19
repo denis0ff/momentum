@@ -1,5 +1,5 @@
-import { getLinkToImage, state } from "./settings";
-import { timer } from "./time-calendar.js";
+import { getLinkToImage } from "./settings";
+import { timer, state } from "./time-calendar.js";
 
 const body = document.querySelector("body");
 const btnPrev = document.querySelector(".slide-prev");

@@ -2,8 +2,33 @@ const time = document.querySelector(".time");
 const date = document.querySelector(".date");
 const greeting = document.querySelector(".greeting");
 
+const state = {
+  language: "en",
+  photoSource: "github",
+  time: true,
+  date: true,
+  greeting__wr: true,
+  quote__wr: true,
+  weather: true,
+  player: true,
+  blocks: [
+    "time",
+    "date",
+    "greeting",
+    "quotes",
+    "weather",
+    "audio" /* 'todolist' */,
+  ],
+  tag: "native",
+  tagUrl: "",
+};
+
 class Timer {
   constructor() {
+    this.timeFormat = {
+      en: `en-US`,
+      ru: `ru-RU`,
+    };
     this.dateOptions = {
       weekday: "long",
       month: "long",
@@ -13,16 +38,29 @@ class Timer {
     this.timeOptions = {
       timeZone: "EET",
     };
-    this.greetingText = ["night", "morning", "afternoon", "evening"];
+    this.greetingText = {
+      en: ["night", "morning", "afternoon", "evening"],
+      ru: ["ночи", "утро", "день", "вечер"],
+    };
+    this.mixed = {
+      en: ["Good", "Good", "Good", "Good"],
+      ru: ["Доброй", "Доброе", "Добрый", "Добрый"],
+    };
     this.greetingOutput;
     this.arrNumber = 0;
   }
   showTime(dateNow) {
-    const currentTime = dateNow.toLocaleTimeString("ru-RU", this.timeOptions);
+    const currentTime = dateNow.toLocaleTimeString(
+      this.timeFormat[state.language],
+      this.timeOptions
+    );
     time.textContent = currentTime;
   }
   showDate(dateNow) {
-    const currentDate = dateNow.toLocaleDateString("en-US", this.dateOptions);
+    const currentDate = dateNow.toLocaleDateString(
+      this.timeFormat[state.language],
+      this.dateOptions
+    );
     date.textContent = currentDate;
   }
   showGreeting(dateNow) {
@@ -36,8 +74,10 @@ class Timer {
       : hours >= 18 && hours < 24
       ? (this.arrNumber = 3)
       : greetingOutput;
-    this.greetingOutput = this.greetingText[this.arrNumber];
-    greeting.textContent = "Good " + this.greetingOutput;
+    this.greetingOutput = this.greetingText[state.language][this.arrNumber];
+    greeting.textContent = `${this.mixed[state.language][this.arrNumber]} ${
+      this.greetingOutput
+    }`;
   }
   updateTimer() {
     const dateNow = new Date();
@@ -50,4 +90,4 @@ class Timer {
 
 const timer = new Timer();
 
-export { timer };
+export { timer, state };

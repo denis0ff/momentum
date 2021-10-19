@@ -1,25 +1,28 @@
 import { setRandomBackground, getRandomNumber } from "./image-slider.js";
-
+import { getQuotes } from "./day-quotes.js";
+import { getWeather } from "./weather.js";
+import { state } from "./time-calendar.js";
+import { showNameHolder } from "./name-input.js";
 const settings = document.querySelector(".settings-container");
 const buttonShowHide = settings.querySelector(".settings-button");
 const settingsDiv = settings.querySelector(".settings-panel");
 const imagesToggles = settings.querySelectorAll(".images-source>input");
-const selectImageTag = document.getElementById("apiTag");
+const selectImageTag = document.getElementById("api-tag");
 const optionsOfImageTag = selectImageTag.querySelectorAll("option");
+const languageToggles = settings.querySelectorAll(".language-source>input");
 
-const state = {
-  language: "en",
-  photoSource: "github",
-  blocks: [
-    "time",
-    "date",
-    "greeting",
-    "quote",
-    "weather",
-    "audio" /*, 'todolist'*/,
-  ],
-  tag: "native",
-  tagUrl: "",
+const menuItems = settings.querySelectorAll(".menu-item");
+const blockLabels = settings.querySelectorAll(".block-item>label");
+const blockItems = settings.querySelectorAll(".block-item>input");
+
+const menu = {
+  en: ["Images source", "Language", "Display elements"],
+  ru: ["Источник изображения", "Язык", "Отобразить элементы"],
+};
+
+const blocks = {
+  en: ["Time", "Date", "Greeting", "Quotes", "Weather", "Audio-player"],
+  ru: ["Время", "Дата", "Приветствие", "Цитаты", "Погода", "Аудио-плеер"],
 };
 
 function showSettings() {
@@ -67,9 +70,45 @@ async function getLinkToImage() {
   }
 }
 
+function updateLanguage(e) {
+  state.language = e.target.value;
+  getQuotes();
+  getWeather();
+  showNameHolder();
+  updateLangSettings();
+  updateLangBlock()
+}
+
+function updateLangSettings() {
+  for (let i = 0; i < menu[state.language].length; i++) {
+    menuItems[i].textContent = menu[state.language][i];
+  }
+}
+
+function updateLangBlock() {
+  for (let i = 0; i < blocks[state.language].length; i++) {
+    blockLabels[i].textContent = blocks[state.language][i];
+  }
+}
+
+function updateDisplayBlock(e) {
+  const blockName = e.target.value;
+  const block = document.querySelector(`.${blockName}`)
+  state[blockName] = !state[blockName];
+  block.classList.toggle("hide");
+}
+
 buttonShowHide.addEventListener("click", showSettings);
 imagesToggles.forEach((toggle) =>
   toggle.addEventListener("change", updateImageRadio)
 );
+languageToggles.forEach((toggle) =>
+  toggle.addEventListener("change", updateLanguage)
+);
+
+blockItems.forEach((checkbox) =>
+  checkbox.addEventListener("change", updateDisplayBlock)
+);
 selectImageTag.addEventListener("change", updateApiTag);
-export { showSettings, getLinkToImage, state };
+
+export { showSettings, getLinkToImage };

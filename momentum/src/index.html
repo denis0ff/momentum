@@ -72,14 +72,14 @@
       </div>
       <time class="time"></time>
       <date class="date"></date>
-      <div class="greeting-container">
+      <div class="greeting-container greeting__wr">
         <span class="greeting"></span>
-        <input type="text" class="name" placeholder="[Enter name]" />
+        <input type="text" class="name" />
       </div>
     </main>
     <footer class="footer">
       <button class="change-quote"></button>
-      <div>
+      <div class="quote-container quote__wr">
         <div class="quote"></div>
         <div class="author"></div>
       </div>
@@ -92,11 +92,11 @@
             <input type="radio" id="item-3" name="item[]" />
             <ul class="menu-list">
               <label for="item-1"
-                ><li class="menu-item">Images Source</li></label
+                ><li class="menu-item">Images source</li></label
               >
               <label for="item-2"><li class="menu-item">Language</li></label>
               <label for="item-3"
-                ><li class="menu-item">Display Elements</li></label
+                ><li class="menu-item">Display elements</li></label
               >
             </ul>
             <ul class="content-list">
@@ -109,7 +109,7 @@
                     value="github"
                     checked="checked"
                   />
-                  <label for="content-1"> GitHub</label>
+                  <label for="content-1">GitHub</label>
                   <input
                     type="radio"
                     id="content-2"
@@ -124,7 +124,7 @@
                     value="flickr"
                   />
                   <label for="content-3">Flickr API</label>
-                  <select name="Api Tag" id="apiTag">
+                  <select name="api tag" id="api-tag">
                     <option value="native">Native</option>
                     <option value="office">Office</option>
                     <option value="nature">Nature</option>
@@ -134,10 +134,66 @@
                 </div>
               </li>
               <li class="content-item">
-                <div class="content-item__wr"></div>
+                <div class="content-item__wr language-source">
+                  <input
+                    type="radio"
+                    id="language-en"
+                    name="language"
+                    value="en"
+                    checked="checked"
+                  />
+                  <label for="language-en">English</label>
+                  <input
+                    type="radio"
+                    id="language-ru"
+                    name="language"
+                    value="ru"
+                  />
+                  <label for="language-ru">Russian</label>
+                </div>
               </li>
               <li class="content-item">
-                <div class="content-item__wr"></div>
+                <div class="content-item__wr block-list">
+                  <div class="block-item">
+                    <input type="checkbox" id="time" value="time" checked />
+                    <label for="time">Time</label>
+                  </div>
+                  <div class="block-item">
+                    <input type="checkbox" id="date" value="date" checked />
+                    <label for="date">Date</label>
+                  </div>
+                  <div class="block-item">
+                    <input
+                      type="checkbox"
+                      id="greeting"
+                      value="greeting__wr"
+                      checked
+                    />
+                    <label for="greeting">Greeting</label>
+                  </div>
+                  <div class="block-item">
+                    <input
+                      type="checkbox"
+                      id="quote"
+                      value="quote__wr"
+                      checked
+                    />
+                    <label for="quote">Quotes</label>
+                  </div>
+                  <div class="block-item">
+                    <input
+                      type="checkbox"
+                      id="weather"
+                      value="weather"
+                      checked
+                    />
+                    <label for="weather">Weather</label>
+                  </div>
+                  <div class="block-item">
+                    <input type="checkbox" id="audio" value="player" checked />
+                    <label for="audio">Audio-player</label>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
