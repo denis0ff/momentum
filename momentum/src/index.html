@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/player.css" />
     <link rel="stylesheet" href="css/settings.css" />
+    <link rel="stylesheet" href="css/todo.css" />
     <!-- <script type="module" src="./index.js"></script> -->
     <title>momentum</title>
   </head>
@@ -75,6 +76,39 @@
       <div class="greeting-container greeting__wr">
         <span class="greeting"></span>
         <input type="text" class="name" />
+      </div>
+      <div class="todo-container">
+        <div class="todo__wr">
+          <div class="todo-null">
+            <span class="todo-question">
+              What is your main focus for today?
+            </span>
+            <input type="text" name="todo" id="todo-question" />
+          </div>
+          <div class="todo-content">
+            <span class="todo-title">TODAY</span>
+            <div class="todo-content__wr">
+              <div class="todo-check"></div>
+              <span class="todo-text">Text-input</span>
+              <div class="todo-dots">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 60 60"
+                  class="icon-dots"
+                >
+                  <path
+                    d="M8 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM52 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zM30 22c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="todo-options">
+                <span class="todo-edit">Edit</span>
+                <span class="todo-clear">Clear</span>
+              </div>
+            </div>
+            <span class="todo-complete">Good job!</span>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer">
