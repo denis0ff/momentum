@@ -30,16 +30,24 @@ function showSettings() {
 }
 
 function updateImageRadio(e) {
-  const photoSource = e.target.value;
-  state.photoSource = photoSource;
-  showHideTag(photoSource);
+  if (e) {
+    const photoSource = e.target.value;
+    state.photoSource = photoSource;
+  } else {
+    imagesToggles.forEach((toggle) => {
+      if (toggle.value == state.photoSource) toggle.checked = true;
+    });
+    optionsOfImageTag.forEach((option) => {
+      if (option.value == state.tag) option.selected = true;
+    });
+  }
+  showHideTag(state.photoSource);
 }
 
 function showHideTag(photoSource) {
-  selectImageTag.classList.remove("show");
-  if (photoSource !== "github") {
-    selectImageTag.classList.add("show");
-  }
+  selectImageTag.classList.add("show");
+  if (photoSource === "github") selectImageTag.classList.remove("show");
+  else selectImageTag.classList.add("show");
   updateApiTag();
 }
 
@@ -54,7 +62,6 @@ function updateApiTag() {
 
 async function getLinkToImage() {
   let url;
-
   if (state.photoSource == "unsplash") {
     url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${state.tag}&client_id=Uh_vG0n7c8ChoTKsCq5Yc_5GtiySV34AsiJIDztdpqQ`;
     const res = await fetch(url);
@@ -71,12 +78,17 @@ async function getLinkToImage() {
 }
 
 function updateLanguage(e) {
-  state.language = e.target.value;
+  if (e) state.language = e.target.value;
+  else {
+    languageToggles.forEach((toggle) => {
+      if (toggle.value == state.language) toggle.checked = true;
+    });
+  }
   getQuotes();
   getWeather();
   showNameHolder();
   updateLangSettings();
-  updateLangBlock()
+  updateLangBlock();
 }
 
 function updateLangSettings() {
@@ -92,10 +104,22 @@ function updateLangBlock() {
 }
 
 function updateDisplayBlock(e) {
-  const blockName = e.target.value;
-  const block = document.querySelector(`.${blockName}`)
-  state[blockName] = !state[blockName];
-  block.classList.toggle("hide");
+  if (e) {
+    const key = e.target.value;
+    const block = document.querySelector(`.${key}`);
+    state[key] = !state[key];
+    block.classList.toggle("hide");
+  } else {
+    for (let key in state) {
+      if (state[key] === false) {
+        blockItems.forEach((block) => {
+          if (block.value === key) block.checked = false;
+        });
+        const block = document.querySelector(`.${key}`);
+        block.classList.toggle("hide");
+      }
+    }
+  }
 }
 
 buttonShowHide.addEventListener("click", showSettings);
@@ -111,4 +135,10 @@ blockItems.forEach((checkbox) =>
 );
 selectImageTag.addEventListener("change", updateApiTag);
 
-export { showSettings, getLinkToImage };
+export {
+  showSettings,
+  getLinkToImage,
+  updateLanguage,
+  updateDisplayBlock,
+  updateImageRadio,
+};

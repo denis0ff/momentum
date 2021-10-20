@@ -50,10 +50,7 @@ class Timer {
     this.arrNumber = 0;
   }
   showTime(dateNow) {
-    const currentTime = dateNow.toLocaleTimeString(
-      this.timeFormat[state.language],
-      this.timeOptions
-    );
+    const currentTime = dateNow.toLocaleTimeString(`ru-RU`, this.timeOptions);
     time.textContent = currentTime;
   }
   showDate(dateNow) {
