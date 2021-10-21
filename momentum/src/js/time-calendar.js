@@ -11,14 +11,8 @@ const state = {
   quote__wr: true,
   weather: true,
   player: true,
-  blocks: [
-    "time",
-    "date",
-    "greeting",
-    "quotes",
-    "weather",
-    "audio" /* 'todolist' */,
-  ],
+  todo__list: true,
+  todo: '',
   tag: "native",
   tagUrl: "",
 };

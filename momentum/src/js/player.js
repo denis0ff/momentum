@@ -10,11 +10,11 @@ const progress = player.querySelector(".progress");
 const soundLevel = player.querySelector(".sound-level");
 const playerTime = player.querySelectorAll(".player-time");
 const playListContainer = player.querySelector(".play-list");
-const smallPlayBtn = player.querySelectorAll(".play-item-button");
 
 let isPause = false;
 let playNum = 0;
 let playListLength = 0;
+let prevClick;
 
 const audio = new Audio();
 audio.volume = 0.5;
@@ -100,6 +100,8 @@ function slideList(moveTo) {
   if (moveTo === 1) playNum < playListLength - 1 ? playNum++ : (playNum = 0);
   else if (moveTo === -1)
     playNum > 0 ? playNum-- : (playNum = playListLength - 1);
+  const buttons = document.querySelectorAll(".play-item-button");
+  prevClick = buttons[playNum];
   slidePlay();
 }
 
@@ -165,7 +167,7 @@ function toggleSound() {
 
 function updateSoundButton() {
   const icon = !audio.muted ? "volume.svg" : "volume-mute.svg";
-  muteButton.style.backgroundImage = `url(../assets/svg/${icon})`;
+  muteButton.style.backgroundImage = `url(./assets/svg/${icon})`;
 }
 
 function handleSoundLevelUpdate() {
@@ -184,13 +186,12 @@ function soundLevelLineUpdate() {
   soundLevel.style.background = `linear-gradient(to right, #fff 0%, #fff ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
 }
 
-let prevClick;
 function playOnSmallButton(e) {
   if (prevClick != e.target) {
     prevClick = e.target;
   } else {
-    toggleBtn()
-    return
+    toggleBtn();
+    return;
   }
   playNum = this.dataset.index;
   slidePlay(e.target);

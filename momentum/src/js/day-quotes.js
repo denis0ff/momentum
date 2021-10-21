@@ -7,7 +7,7 @@ const author = quoteDiv.querySelector(".author");
 const btnChangeQuote = document.querySelector(".change-quote");
 
 async function getQuotes() {
-  const quotes = `../assets/${state.language}-quotes.json`;
+  const quotes = `./assets/${state.language}-quotes.json`;
   const res = await fetch(quotes);
   const data = await res.json();
   const quoteNumber = getRandomNumber(0, data.quotes.length - 1);

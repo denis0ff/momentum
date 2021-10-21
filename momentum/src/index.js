@@ -5,6 +5,7 @@ import * as player from "./js/player.js";
 import { getWeather } from "./js/weather.js";
 import { getQuotes } from "./js/day-quotes.js";
 import { showSettings } from "./js/settings.js";
+import { updateTodo } from "./js/todo.js";
 
 showNameHolder();
 
@@ -16,3 +17,4 @@ slider.setRandomBackground();
 player.playAudio();
 
 showSettings();
+

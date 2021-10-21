@@ -3,6 +3,7 @@ import { getQuotes } from "./day-quotes.js";
 import { getWeather } from "./weather.js";
 import { state } from "./time-calendar.js";
 import { showNameHolder } from "./name-input.js";
+import { updateTodoLang } from "./todo.js";
 const settings = document.querySelector(".settings-container");
 const buttonShowHide = settings.querySelector(".settings-button");
 const settingsDiv = settings.querySelector(".settings-panel");
@@ -21,8 +22,8 @@ const menu = {
 };
 
 const blocks = {
-  en: ["Time", "Date", "Greeting", "Quotes", "Weather", "Audio-player"],
-  ru: ["Время", "Дата", "Приветствие", "Цитаты", "Погода", "Аудио-плеер"],
+  en: ["Time", "Date", "Greeting", "Quotes", "Weather", "Audio-player", 'Todo list'],
+  ru: ["Время", "Дата", "Приветствие", "Цитаты", "Погода", "Аудио-плеер", 'Список дел'],
 };
 
 function showSettings() {
@@ -89,6 +90,7 @@ function updateLanguage(e) {
   showNameHolder();
   updateLangSettings();
   updateLangBlock();
+  updateTodoLang();
 }
 
 function updateLangSettings() {

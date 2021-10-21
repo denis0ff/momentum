@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="assets/favicon.ico" rel="shortcut icon" />
+
     <link rel="stylesheet" href="css/owfont-regular.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/player.css" />
+    <link rel="stylesheet" href="css/media.css" />
     <link rel="stylesheet" href="css/settings.css" />
     <link rel="stylesheet" href="css/todo.css" />
-    <!-- <script type="module" src="./index.js"></script> -->
+
     <title>momentum</title>
   </head>
   <body>
@@ -77,7 +79,7 @@
         <span class="greeting"></span>
         <input type="text" class="name" />
       </div>
-      <div class="todo-container">
+      <div class="todo__list">
         <div class="todo__wr">
           <div class="todo-null">
             <span class="todo-question">
@@ -85,11 +87,11 @@
             </span>
             <input type="text" name="todo" id="todo-question" />
           </div>
-          <div class="todo-content">
+          <div class="todo-content hide">
             <span class="todo-title">TODAY</span>
             <div class="todo-content__wr">
               <div class="todo-check"></div>
-              <span class="todo-text">Text-input</span>
+              <span class="todo-text"></span>
               <div class="todo-dots">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,19 +103,20 @@
                   ></path>
                 </svg>
               </div>
-              <div class="todo-options">
+              <div class="todo-options hide">
                 <span class="todo-edit">Edit</span>
                 <span class="todo-clear">Clear</span>
+                <span class="todo-new not-display">New</span>
               </div>
             </div>
-            <span class="todo-complete">Good job!</span>
+            <span class="todo-complete hide">Good job!</span>
           </div>
         </div>
       </div>
     </main>
     <footer class="footer">
-      <button class="change-quote"></button>
       <div class="quote-container quote__wr">
+        <button class="change-quote"></button>
         <div class="quote"></div>
         <div class="author"></div>
       </div>
@@ -226,6 +229,15 @@
                   <div class="block-item">
                     <input type="checkbox" id="audio" value="player" checked />
                     <label for="audio">Audio-player</label>
+                  </div>
+                  <div class="block-item">
+                    <input
+                      type="checkbox"
+                      id="todo"
+                      value="todo__list"
+                      checked
+                    />
+                    <label for="todo">Todo list</label>
                   </div>
                 </div>
               </li>
