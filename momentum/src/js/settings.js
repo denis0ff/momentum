@@ -22,8 +22,24 @@ const menu = {
 };
 
 const blocks = {
-  en: ["Time", "Date", "Greeting", "Quotes", "Weather", "Audio-player", 'Todo list'],
-  ru: ["Время", "Дата", "Приветствие", "Цитаты", "Погода", "Аудио-плеер", 'Список дел'],
+  en: [
+    "Time",
+    "Date",
+    "Greeting",
+    "Quotes",
+    "Weather",
+    "Audio-player",
+    "Todo list",
+  ],
+  ru: [
+    "Время",
+    "Дата",
+    "Приветствие",
+    "Цитаты",
+    "Погода",
+    "Аудио-плеер",
+    "Список дел",
+  ],
 };
 
 function showSettings() {
@@ -67,14 +83,16 @@ async function getLinkToImage() {
     url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${state.tag}&client_id=Uh_vG0n7c8ChoTKsCq5Yc_5GtiySV34AsiJIDztdpqQ`;
     const res = await fetch(url);
     const data = await res.json();
-    Promise.resolve().then((state.tagUrl = data.urls.regular));
+    state.tagUrl = data.urls.regular;
+    Promise.resolve().then(state.tagUrl);
   }
   if (state.photoSource == "flickr") {
     url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=a50e4730a02dc168ff6aec60014c330e&tags=${state.tag}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
     let number = getRandomNumber(0, 100);
-    Promise.resolve().then((state.tagUrl = data.photos.photo[number].url_l));
+    state.tagUrl = data.photos.photo[number].url_l;
+    Promise.resolve().then(state.tagUrl);
   }
 }
 
