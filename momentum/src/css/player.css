@@ -8,7 +8,8 @@
 .control-bar {
   display: flex;
   margin-left: 20px;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
 }

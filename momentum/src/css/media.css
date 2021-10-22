@@ -1,21 +1,28 @@
 @media screen and (max-width: 1024px) {
   .player {
     align-items: center;
+    gap: 1em;
+  }
+
+  .name {
+    max-width: 40vw;
+    margin-right: 10vw;
+  }
+
+  .control-bar {
+    margin-left: 0;
+    max-width: 70%;
   }
 
   .play-list {
     flex: inherit;
   }
-
-  .todo__list {
-    margin-bottom: 15em;
-  }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 868px) {
   .time {
     min-height: 80px;
-    font-size: 72px;    
+    font-size: 72px;
   }
 
   .greeting-container {
@@ -30,5 +37,79 @@
   .name {
     font-size: 32px;
     padding: 5px;
+  }
+
+  .todo-options {
+    right: 0 !important;
+  }
+  .todo-options::after {
+    left: auto !important;
+    right: 5px !important;
+  }
+
+  .player {
+    position: relative;
+  }
+
+  .play-list {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .control-bar {
+    margin-left: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .sound-bar {
+    padding: 20px 10px 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .player {
+    justify-content: center;
+    gap: 0;
+  }
+  .play-list {
+    display: none;
+  }
+  .header {
+    padding: 20px 10px 10px;
+  }
+  .settings-panel.show {
+    width: 96vw !important;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .time {
+    min-height: 50px;
+    font-size: 42px;
+  }
+  .todo__list {
+    font-size: 0.7em;
+  }
+  .greeting-container, .name {
+    font-size: 1.1em;
+  }
+  .player {
+    width: 50%;
+  }
+  .weather {
+    width: 50%;
+  }
+  .progress-bar > span {
+    display: none;
+  }
+
+  .quote-container {
+    height: 100%;
+    width: 100vw;
   }
 }

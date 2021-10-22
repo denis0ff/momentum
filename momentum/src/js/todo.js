@@ -19,7 +19,7 @@ const todoNew = todoContent.querySelector(".todo-new");
 
 const completeText = {
   en: ["Good job!", "Nice.", "Great work!", "Way to go!"],
-  ru: ["Ты лучший.", "Отлично!", "Хорошая работа!", "Класс!"],
+  ru: ["Ты просто космос.", "Отлично!", "Хорошая работа!", "Класс!"],
 };
 
 const todoTranslite = {

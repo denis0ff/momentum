@@ -6,6 +6,7 @@ body {
 
 .todo__list {
   padding: 1em 1em;
+  margin-bottom: 13vh;
   width: 100%;
 }
 
