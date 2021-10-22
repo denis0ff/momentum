@@ -23,7 +23,7 @@ async function setRandomBackground() {
     if (randomNumber > 0 && randomNumber < 10)
       if (typeof randomNumber !== 'string')
       randomNumber = `0${randomNumber}`;
-    img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${imageTimeArr[index]}/${randomNumber}.jpg`;
+    img.src = `https://raw.githubusercontent.com/denis0ff/stage1-tasks/assets/images/${imageTimeArr[index]}/${randomNumber}.jpg`;
   } else {
     await getLinkToImage();
     img.src = state.tagUrl;

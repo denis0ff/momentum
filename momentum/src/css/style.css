@@ -267,3 +267,25 @@ body {
 .author {
   min-height: 20px;
 }
+
+.about-me {
+  display: flex;
+  align-self: end;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-me a {
+  all: unset;
+  margin: 0 1em;
+  cursor: pointer;
+}
+
+.rss-logo {
+  width: 5em;
+  height: 2em;
+  background-size: contain;
+  background: url("../assets/svg/rss-logo.svg") no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+}
