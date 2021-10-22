@@ -147,14 +147,10 @@
     height: auto;
     justify-content: flex-start;
   }
-  .player-icon,
-  .slider-icon,
   .change-quote {
+    margin-bottom: 1%;
     width: 1.3em;
     height: 1.3em;
     background-size: 1.3em;
-  }
-  .change-quote {
-    margin-bottom: 1%;
   }
 }
