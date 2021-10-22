@@ -96,4 +96,9 @@
   height: 18px;
   margin-left: 5px;
   z-index: 5;
+  background-image: url("../assets/svg/play-small.svg");
+}
+
+.play-item-button.pause {
+  background-image: url("../assets/svg/pause-small.svg");
 }

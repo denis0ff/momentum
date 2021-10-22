@@ -221,6 +221,8 @@ function handleProgressUpdate() {
 async function autoPlay() {
   if (playNum == playListLength - 1) playNum = 0;
   else playNum++;
+  const buttons = document.querySelectorAll(".play-item-button");
+  prevClick = buttons[playNum];
   updateSrc();
   updateActive();
   await audio.play();
