@@ -6,8 +6,9 @@ body {
 
 .todo__list {
   padding: 1em 1em;
-  margin-bottom: 13vh;
+  margin-bottom: 15vh;
   width: 100%;
+  transition: 1s;
 }
 
 .todo__wr {

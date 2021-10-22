@@ -23,7 +23,7 @@
   display: flex;
   padding: 20px 40px 0;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
 }
 
 .progress-seek {
@@ -71,13 +71,13 @@
 }
 
 .sound-level {
-  width: calc(70% - 70px);;
+  width: calc(70% - 70px);
 }
 
 .mute-toggle {
   margin-right: 15px;
-  width: 35px;
-  height: 35px;
+  width: 3em;
+  height: 3em;
   background-image: url(../assets/svg/volume.svg);
   background-size: contain;
 }

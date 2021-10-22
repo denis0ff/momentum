@@ -21,8 +21,7 @@
 
 @media screen and (max-width: 868px) {
   .time {
-    min-height: 80px;
-    font-size: 72px;
+    font-size: 5em;
   }
 
   .greeting-container {
@@ -69,6 +68,10 @@
   .sound-bar {
     padding: 20px 10px 0;
   }
+  .todo-question {
+    font-size: 2em;
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -89,16 +92,19 @@
 
 @media screen and (max-width: 560px) {
   .time {
-    min-height: 50px;
-    font-size: 42px;
+    font-size: 4em;
   }
   .todo__list {
     font-size: 0.7em;
   }
-  .greeting-container, .name {
+  .greeting-container,
+  .name {
     font-size: 1.1em;
   }
   .player {
+    width: 50%;
+  }
+  .sound-level {
     width: 50%;
   }
   .weather {
@@ -111,5 +117,26 @@
   .quote-container {
     height: 100%;
     width: 100vw;
+  }
+  .mute-toggle {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .greeting-container,
+  .name {
+    font-size: 1em;
+  }
+
+  .weather {
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-height: 645px) {
+  .main {
+    font-size: 0.7em;
   }
 }
