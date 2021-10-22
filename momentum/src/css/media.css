@@ -34,7 +34,6 @@
   }
 
   .name {
-    font-size: 32px;
     padding: 5px;
   }
 
@@ -97,9 +96,8 @@
   .todo__list {
     font-size: 0.7em;
   }
-  .greeting-container,
-  .name {
-    font-size: 1.1em;
+  .greeting-container {
+    font-size: 2.3em;
   }
   .player {
     width: 50%;
@@ -117,6 +115,7 @@
   .quote-container {
     height: 100%;
     width: 100vw;
+    font-size: 0.7em;
   }
   .mute-toggle {
     width: 2em;
@@ -125,18 +124,37 @@
 }
 
 @media screen and (max-width: 380px) {
-  .greeting-container,
-  .name {
-    font-size: 1em;
-  }
-
   .weather {
     font-size: 0.8em;
+  }
+  .greeting-container {
+    font-size: 1.5em;
   }
 }
 
 @media screen and (max-height: 645px) {
   .main {
-    font-size: 0.7em;
+    font-size: 0.6em;
+  }
+  .content-item__wr > label {
+    padding: 0.8em;
+  }
+  .content-item__wr {
+    height: 90%;
+  }
+  .footer {
+    padding: 0;
+    height: auto;
+    justify-content: flex-start;
+  }
+  .player-icon,
+  .slider-icon,
+  .change-quote {
+    width: 1.3em;
+    height: 1.3em;
+    background-size: 1.3em;
+  }
+  .change-quote {
+    margin-bottom: 1%;
   }
 }

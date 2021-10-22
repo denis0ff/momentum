@@ -75,9 +75,9 @@ body {
 .player-icon,
 .slider-icon,
 .change-quote {
-  width: 32px;
-  height: 32px;
-  background-size: 32px 32px;
+  width: 2em;
+  height: 2em;
+  background-size: 2em;
   background-position: center center;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -217,7 +217,7 @@ body {
   align-items: center;
   min-height: 48px;
   width: 100vw;
-  font-size: 40px;
+  font-size: 3em;
 }
 
 .greeting {
@@ -231,7 +231,7 @@ body {
   max-width: 35vw;
   margin-right: 15vw;
   padding: 10px;
-  font-size: 40px;
+  font-size: 1em;
   text-align: left;
   color: #fff;
   background-color: transparent;
